@@ -11,7 +11,6 @@ Pizza.prototype.calculateCost = function() {
 
 Pizza.prototype.calculateSize = function() {
   let calculatedSize = 0;
-  console.log(this.pizzaSize)
   switch (this.pizzaSize) {
     case ("small"):
       calculatedSize = 0.75;
