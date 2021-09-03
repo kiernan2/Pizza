@@ -33,15 +33,30 @@ Pizza.prototype.calculateSize = function() {
 // UI Logic
 function displayPizza(pizza) {
   const output = $("div#output");
-  const htmlForPizza = "<li> You ordered a " + pizza.pizzaSize + " with " + pizza.pizzaToppings + " it costs " + pizza.pizzaCost + "</li>";
+  const noToppings = " without toppings ";
+  const withToppings = " with ";
+  let toppingsStatus = "";
+  if(pizza.pizzaToppings.length > 0)
+  {
+    toppingsStatus = withToppings;
+  } else {
+    toppingsStatus = noToppings;
+  }
+  console.log(pizza.pizzaToppings)
+  const htmlForPizza = "<li> You ordered a " + pizza.pizzaSize + toppingsStatus + pizza.pizzaToppings + " it costs " + pizza.pizzaCost + "</li>";
   output.html(htmlForPizza);
 }
 
 $(document).ready(function() {
   $("#form").submit(function(event) {
     event.preventDefault();
+    let inputtedToppings;
     const inputtedSize = $("input:radio[name=size]:checked").val();
-    const inputtedToppings = $("input#toppings").val().split(" ");
+    if($("input#toppings").val()) {
+      inputtedToppings = $("input#toppings").val().split(" ");
+    } else {
+      inputtedToppings = [];
+    }
     let newPizza = new Pizza(inputtedSize, inputtedToppings);
     newPizza.calculateSize();
     newPizza.calculateCost();
