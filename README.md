@@ -44,42 +44,62 @@ Expected Output: { pizzaSize: "", pizzaToppings: (0) […], pizzaSizeMultiplier:
 Describe: calculateSize()
 
 Test: "See if it returns the appropriate size multiplier"
-calculateSize("small")
-Expected Output: 0.75
+Code:
+let testPizza = new Pizza("small",[])
+testPizza.calculateSize()
+testPizza
+Expected Output: { pizzaSize: "small", pizzaToppings: (0) […], pizzaSizeMultiplier: 0.75, pizzaCost: 0 }
 
-calculateSize("medium")
-Expected Output: 1
+Code:
+let testPizza = new Pizza("medium",[])
+testPizza.calculateSize()
+testPizza
+Expected Output: { pizzaSize: "medium", pizzaToppings: (0) […], pizzaSizeMultiplier: 1, pizzaCost: 0 }
 
-calculateSize("large")
-Expected Output: 1.5
+Code:
+let testPizza = new Pizza("large",[])
+testPizza.calculateSize()
+testPizza
+Expected Output: { pizzaSize: "large", pizzaToppings: (0) […], pizzaSizeMultiplier: 1.5, pizzaCost: 0 }
 
-calculateSize("double")
-Expected Output: 2
+Code:
+let testPizza = new Pizza("double",[])
+testPizza.calculateSize()
+testPizza
+Expected Output: { pizzaSize: "double", pizzaToppings: (0) […], pizzaSizeMultiplier: 2, pizzaCost: 0 }
 
 Describe: calculateCost()
 
 Test: "It should return 30 for a standard pizza"
 Code:
-calculateCost(1,[])
-Expected Output: 30
+let testPizza = new Pizza(("medium",[]))
+testPizza.calculateCost()
+Expected Output: { pizzaSize: "medium", pizzaToppings: (0) […], pizzaSizeMultiplier: 1, pizzaCost: 30 }
 
 Test: "It should return 60 for a Double sized pizza"
 Code:
-calculateCost(1,[])
-Expected Output: 60
+let testPizza = new Pizza(("double",[]))
+testPizza.calculateCost()
+testPizza
+Expected Output: { pizzaSize: 2, pizzaToppings: (0) […], pizzaSizeMultiplier: 0, pizzaCost: 60 }
 
 Test: "It should return 39 for a pizza with one topping"
 Code:
-calculateCost:(1,[x])
-Expected Output: 39
+let testPizza = new Pizza(("medium",["x"]))
+testPizza.calculateCost()
+testPizza
+Expected Output: { pizzaSize: 1, pizzaToppings: (1) […], pizzaSizeMultiplier: 0, pizzaCost: 39 }
 
 Test: "It should return 78 for a Double pizza with one topping"
 Code:
-calculateCost(2,[x])
-Expected Output: 78
+let testPizza = new Pizza(("double",["x"]))
+testPizza.calculateCost()
+testPizza
+Expected Output: { pizzaSize: 2, pizzaToppings: (1) […], pizzaSizeMultiplier: 0, pizzaCost: 78 }
 
 Test: "It should return 48 for a pizza with two toppings"
-Code:
-calculateCost(1,[x,y])
-Expected Output: 48
+let testPizza = new Pizza(("medium",["x","y"]))
+testPizza.calculateCost()
+testPizza
+Expected Output: { pizzaSize: 1, pizzaToppings: (2) […], pizzaSizeMultiplier: 0, pizzaCost: 48 }
 ```

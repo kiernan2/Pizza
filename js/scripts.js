@@ -45,7 +45,6 @@ $(document).ready(function() {
     let newPizza = new Pizza(inputtedSize, inputtedToppings);
     newPizza.calculateSize();
     newPizza.calculateCost();
-    console.log(newPizza);
     displayPizza(newPizza);
   })
 })
