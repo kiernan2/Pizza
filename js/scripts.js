@@ -42,8 +42,7 @@ function displayPizza(pizza) {
   } else {
     toppingsStatus = noToppings;
   }
-  console.log(pizza.pizzaToppings)
-  const htmlForPizza = "<li> You ordered a " + pizza.pizzaSize + toppingsStatus + pizza.pizzaToppings + " it costs " + pizza.pizzaCost + "</li>";
+  const htmlForPizza = "<li> You ordered a " + pizza.pizzaSize + toppingsStatus + pizza.pizzaToppings.join(", ") + " it costs " + pizza.pizzaCost + "</li>";
   output.html(htmlForPizza);
 }
 
